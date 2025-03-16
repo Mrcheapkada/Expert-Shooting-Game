@@ -1,8 +1,19 @@
 // Select the canvas and set its size
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
-canvas.width = 800;
-canvas.height = 500;
+
+// Function to resize canvas dynamically
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    gunX = canvas.width / 2;  // Recenter the gun after resizing
+}
+
+// Set initial canvas size
+resizeCanvas();
+
+// Resize the canvas when the window resizes
+window.addEventListener("resize", resizeCanvas);
 
 let bombs = [];
 let bullets = [];
